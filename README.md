@@ -1,4 +1,4 @@
-# goreleaser-alpine
+# GoReleaser Pro Minimal Alpine Docker Image
 
 A minimal Docker image for [GoReleaser Pro](https://goreleaser.com/pro/) built on Alpine Linux, maintained by [Sawmills](https://github.com/sawmills).
 
