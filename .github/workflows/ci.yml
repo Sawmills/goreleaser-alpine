@@ -45,6 +45,7 @@ jobs:
             ghcr.io/sawmills/goreleaser-alpine:latest
             ghcr.io/sawmills/goreleaser-alpine:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
       - name: Create GitHub Release
         if: github.ref == 'refs/heads/main'
         uses: actions/create-release@v1
