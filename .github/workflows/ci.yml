@@ -13,7 +13,7 @@ jobs:
       ALPINE_VERSION: 3.21
       GORELEASER_VERSION: v2.9.0
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - uses: actions/checkout@v4
@@ -45,3 +45,21 @@ jobs:
             ghcr.io/sawmills/goreleaser-alpine:latest
             ghcr.io/sawmills/goreleaser-alpine:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Create GitHub Release
+        if: github.ref == 'refs/heads/main'
+        uses: actions/create-release@v1
+        with:
+          tag_name: go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}
+          release_name: "Release go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}"
+          body: |
+            Docker image published:
+            - ghcr.io/sawmills/goreleaser-alpine:go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}
+            - ghcr.io/sawmills/goreleaser-alpine:latest
+            - ghcr.io/sawmills/goreleaser-alpine:${{ github.sha }}
+            
+            Build args:
+            - GO_VERSION=${{ env.GO_VERSION }}
+            - ALPINE_VERSION=${{ env.ALPINE_VERSION }}
+            - GORELEASER_VERSION=${{ env.GORELEASER_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
