@@ -50,8 +50,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: actions/create-release@v1
         with:
-          tag_name: go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}
-          release_name: "Release go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}"
+          tag_name: go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}-${{ github.sha }}
+          release_name: "Release go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}-${{ github.sha }}"
           body: |
             Docker image published:
             - ghcr.io/sawmills/goreleaser-alpine:go${{ env.GO_VERSION }}-goreleaser${{ env.GORELEASER_VERSION }}-alpine${{ env.ALPINE_VERSION }}
