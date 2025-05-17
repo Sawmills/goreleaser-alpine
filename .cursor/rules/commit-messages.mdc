@@ -1,0 +1,71 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Commit Message Guidelines: Semantic (Conventional) Commits
+
+All commit messages must follow the [Conventional Commits](mdc:https:/www.conventionalcommits.org) specification for clarity, automation, and better project history.
+
+## Structure
+
+```
+<type>(optional scope): <short description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+- **type**: One of the allowed types below
+- **scope**: (optional) A noun describing the section of the codebase affected
+- **short description**: Concise summary in the imperative mood (e.g., "add feature" not "added feature")
+- **body**: (optional) More detailed explanation, wrapped at 72 characters
+- **footer**: (optional) For breaking changes and issue references
+
+## Allowed Types
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect meaning (formatting, missing semi-colons, etc)
+- **refactor**: Code change that neither fixes a bug nor adds a feature
+- **perf**: Code change that improves performance
+- **test**: Adding or correcting tests
+- **chore**: Changes to the build process or auxiliary tools
+- **ci**: Changes to CI configuration files and scripts
+- **build**: Changes that affect the build system or dependencies
+- **revert**: Reverts a previous commit
+
+## Breaking Changes
+- Indicate breaking changes by adding a `!` after the type/scope, e.g., `feat!: ...` or `refactor(core)!: ...`
+- Or, add a `BREAKING CHANGE:` footer in the commit body or footer.
+
+## Issue References
+- Reference issues in the footer, e.g., `Closes #123`, `Fixes #456`
+
+## Examples
+
+```
+feat(parser): add ability to parse arrays
+
+fix(api): handle null pointer exception
+
+docs(readme): update installation instructions
+
+refactor(core)!: change API response format
+
+chore: update dependencies
+
+perf: improve query performance
+
+BREAKING CHANGE: The API response format has changed.
+
+Closes #42
+```
+
+## Additional Tips
+- Use the imperative mood in the short description.
+- Keep the short description under 50 characters.
+- Separate subject from body with a blank line.
+- Wrap the body at 72 characters.
+- Use the footer for breaking changes and issue references.
