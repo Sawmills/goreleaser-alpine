@@ -3,10 +3,13 @@ ARG ALPINE_VERSION
 ARG GORELEASER_VERSION
 FROM golang:${GO_VERSION}-alpine${ALPINE_VERSION}
 
+ENV GORELEASER_VERSION=${GORELEASER_VERSION}
 ENV RELEASES_URL="https://github.com/goreleaser/goreleaser-pro/releases"
 ENV FILE_BASENAME="goreleaser-pro"
 
-RUN apk add --no-cache wget curl coreutils docker build-base binutils-gold openssl openssh buf
+RUN apk add --no-cache wget curl coreutils docker build-base binutils-gold openssl openssh
+
+RUN go install github.com/bufbuild/buf/cmd/buf@v1.54.0
 
 COPY install.sh /install.sh
 
