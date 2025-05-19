@@ -7,7 +7,7 @@ ENV GORELEASER_VERSION=${GORELEASER_VERSION}
 ENV RELEASES_URL="https://github.com/goreleaser/goreleaser-pro/releases"
 ENV FILE_BASENAME="goreleaser-pro"
 
-RUN apk add --no-cache wget curl coreutils docker build-base binutils-gold openssl openssh
+RUN apk add --no-cache wget curl coreutils docker build-base binutils-gold openssl openssh helm
 
 RUN go install github.com/bufbuild/buf/cmd/buf@v1.54.0
 
