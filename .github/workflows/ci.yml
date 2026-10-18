@@ -7,7 +7,8 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    # trunk-ignore(actionlint/runner-label): Existing Namespace profile
+    runs-on: namespace-profile-sawmills-runner
     env:
       GO_VERSION: 1.24.3
       ALPINE_VERSION: 3.21
